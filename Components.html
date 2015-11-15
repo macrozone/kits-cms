@@ -9,16 +9,22 @@
 </template>
 
 <template name="component_title_text">
-	<h2>{{title}}</h2>
-	{{{content}}}
+	<div class="container">
+		<h2>{{title}}</h2>
+		{{{content}}}
+	</div>
 </template>
 
 <template name="component_background_box">
-<div class="slide" style="background-image: url({{image.url}})">
-<div class="box">
-	<h2>{{title}}</h2>
-	{{{content}}}
-	</div>
+	<div class="component_background_box" style="background-image: url({{image.url}})">
+		<div class="container">
+			<div class="box col-xs-12 col-sm-8 col-md-6 position-{{boxPosition}}">
 
+				{{{content}}}
+
+
+			</div>
+		</div>
 	</div>
 </template>
+

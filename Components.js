@@ -8,24 +8,32 @@ Components = {
 		return this.definitions[id];
 	},
 	definitions: {},
-	definitionsOptions() {
-		return _.keys(this.definitions).map((id) => {return {label: this.definitions[id].title, value: id}});
+	definitionsOptions({allowedComponents = null}) {
+		let definitions = _.keys(this.definitions);
+		if(_.isArray(allowedComponents)){
+			definitions = _.intersection(definitions, allowedComponents);
+		}
+		return definitions.map((id) => {return {label: this.definitions[id].title, value: id}});
 	},
-	schema() {
+	schema({label = "Components", allowedComponents = null, optional = true}) {
 		return new SimpleSchema({
 			components: {
-				type: [Object]
+				type: [Object],
+				label: label,
+				optional: optional
 			},
 			"components.$.definitionId": {
 				type: String,
 				autoform: {
 					options(){
-						return Components.definitionsOptions();
+						return Components.definitionsOptions({allowedComponents});
 					}
 				}
 			},
 			"components.$.data": {
+				
 				type: Components.schemaComponentData(),
+
 			},
 		});
 	},
@@ -37,7 +45,9 @@ Components = {
 			allCompomentsSchema[id] = {
 				type: this.definitions[id].schema,
 				optional: true,
+				
 				autoform: {
+					//template:"compact",
 					omit: function(fieldName){
 						if(fieldName) {
 							let [component, ___, ...prefix] = fieldName.split(".").reverse();
@@ -83,8 +93,13 @@ Components.register("component_background_box", {
 	title: "Background box",
 	template: "component_background_box",
 	schema: new SimpleSchema({
+		boxPosition: {
+			type: String,
+			allowedValues: ["left", "right"],
+			defaultValue: "left"
+		},
 		content: orion.attribute('froala', {
-			label: 'Inhalt'
+			label: 'Box-Inhalt'
 		}),
 		image: orion.attribute("image", {label: "Bild"})
 	})

@@ -35,21 +35,21 @@ orion.pages.addTemplate({
 	description: 'Default page template'
 }, {
 	content: orion.attribute('froala', {
+		optional: true,
 		label: 'Inhalt'
 	}),
-	mainArea: {
-		type: Components.schema(),
+	carouselArea: {
+		optional: true,
+		type: Components.schema({
+			label: "Carousel", 
+			optional: true,
+			allowedComponents: ["component_background_box"]
+		}),
 	},
-	galleryId: orion.attribute('hasOne', {
-		label: 'Gallery'
-	}, {
-		collection: Galleries,
-		titleField: 'title',
-		publicationName: 'pageGalleries',
-		create: function(){
-			return true;
-		}
-	})
+	mainArea: {
+		optional: true,
+		type: Components.schema({label: "mainArea", optional: true}),
+	}
 });
 
 
@@ -63,14 +63,12 @@ if(Meteor.isClient) {
 		}
 	});
 
-	Template.page_carousel.onCreated(function(){
-		this.subscribe("gallery", this.data.galleryId);
-	});
+	
 	Template.page_carousel.onRendered(function(){
 		let slickInit = false;
 		this.autorun(()=>{
-			let gallery = Galleries.findOne(this.data.galleryId);
-			if(gallery) {
+			let page = orion.pages.collection.findOne(this._id);
+			if(page) {
 				Meteor.defer(()=>{
 
 					if(slickInit)

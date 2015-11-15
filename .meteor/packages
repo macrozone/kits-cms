@@ -20,7 +20,6 @@ insecure                # Allow all DB writes from clients (for prototyping)
 orionjs:core
 twbs:bootstrap
 fortawesome:fontawesome
-orionjs:bootstrap
 iron:router
 orionjs:image-attribute
 vsivsi:orion-file-collection
@@ -34,3 +33,4 @@ timbrandin:slick
 less
 reactive-var
 froala:editor-reactive
+orionjs:bootstrap

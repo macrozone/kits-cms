@@ -2,7 +2,9 @@
 
 
 <template name="layout">
-
+<div class="brand container">
+		<img class="logo" src="{{ dict 'site.logo.url'}}" />
+	</div>
 	{{>layout_navigation}}
 
 	{{>yield}}
@@ -12,19 +14,19 @@
 
 
 <template name="layout_navigation">
-<div class="container">
-<nav class="main-navigation">
+	<div class="container">
+		<nav class="main-navigation">
 
-	<ul>
-		{{#each pages}}
-			<a href="{{ path }}">
-	    		{{ title }}
-	 	 	</a>
-		{{/each}}
-	</ul>
+			<ul>
+				{{#each pages}}
+				<a href="{{ path }}">
+					{{ title }}
+				</a>
+				{{/each}}
+			</ul>
 
-</nav>
-</div>
+		</nav>
+	</div>
 </template>
 
 
