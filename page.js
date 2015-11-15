@@ -26,6 +26,8 @@ orion.pages.collection.helpers({
 	}
 });
 
+
+
 orion.pages.addTemplate({
 	layout: 'layout',
 	template: 'page',
@@ -35,6 +37,9 @@ orion.pages.addTemplate({
 	content: orion.attribute('froala', {
 		label: 'Inhalt'
 	}),
+	mainArea: {
+		type: Components.schema(),
+	},
 	galleryId: orion.attribute('hasOne', {
 		label: 'Gallery'
 	}, {
