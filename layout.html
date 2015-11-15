@@ -1,0 +1,30 @@
+
+
+
+<template name="layout">
+
+	{{>layout_navigation}}
+
+	{{>yield}}
+
+
+</template>
+
+
+<template name="layout_navigation">
+<div class="container">
+<nav class="main-navigation">
+
+	<ul>
+		{{#each pages}}
+			<a href="{{ path }}">
+	    		{{ title }}
+	 	 	</a>
+		{{/each}}
+	</ul>
+
+</nav>
+</div>
+</template>
+
+

@@ -1,0 +1,43 @@
+<template name="page">
+	<div class="page">
+
+		<header>
+		{{#editable collection=collection doc=this property="title"}}
+			<h1 class="title value">{{ value }}</h1>
+		{{/editable}}
+		{{>page_carousel}}
+		</header>
+		<div class="container">
+		{{#editable collection=collection doc=this property="content"}}
+			<div class="content value">
+				{{{ value }}}
+			</div>
+		{{/editable}}
+			
+		</div>
+	</div>
+</template>
+
+
+<template name="page_carousel">
+
+	{{#with carousel}}
+	<div class="carousel">
+
+		
+		<ul class="slick">
+			{{#each images}}
+				{{>page_carousel_image}}
+			{{/each}}
+		</ul>
+
+	</div>
+	{{/with}}
+</template>
+
+
+<template name="page_carousel_image">
+	<li class="slide" style="background-image: url('{{url}}')">
+
+	</li>
+</template>
