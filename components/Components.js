@@ -20,7 +20,8 @@ Components = {
 			components: {
 				type: [Object],
 				label: label,
-				optional: optional
+				optional: optional,
+				
 			},
 			"components.$.definitionId": {
 				type: String,
@@ -31,7 +32,9 @@ Components = {
 				}
 			},
 			"components.$.data": {
-				
+				autoform: {
+					panelClass: "component"
+				},
 				type: Components.schemaComponentData(),
 
 			},
@@ -47,14 +50,16 @@ Components = {
 				optional: true,
 				
 				autoform: {
+
 					//template:"compact",
-					omit: function(fieldName){
-						if(fieldName) {
-							let [component, ___, ...prefix] = fieldName.split(".").reverse();
-							let definitionField = `${prefix.reverse().join(".")}.definitionId`;
-							let definition = AutoForm.getFieldValue(definitionField);
-							return definition !== component;
-						}
+					panelClass: function(){
+						let fieldName = this.name;
+						
+						let [component, ___, ...prefix] = fieldName.split(".").reverse();
+						let definitionField = `${prefix.reverse().join(".")}.definitionId`;
+						let definition = AutoForm.getFieldValue(definitionField);
+						return definition === component ? "component-definition component-definition-selected" : "component-definition component-definition-not-selected"
+						
 					}
 				}
 			};
