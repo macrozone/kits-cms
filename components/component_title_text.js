@@ -1,6 +1,6 @@
-Components.register("component_title_text", {
+orion.components.registerComponent("component_title_text", {
 	title: "Titel und Text",
-	template: "component_title_text",
+	templateFrontend: "component_title_text",
 	schema: new SimpleSchema({
 		title: {
 			type: String

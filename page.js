@@ -10,7 +10,7 @@ orion.pages.addTemplate({
 	
 	carouselArea: {
 		optional: true,
-		type: Components.schema({
+		type: orion.components.components({
 			label: "Carousel", 
 			optional: true,
 			allowedComponents: ["component_background_box"]
@@ -32,7 +32,7 @@ orion.pages.addTemplate({
 	
 	carouselArea: {
 		optional: true,
-		type: Components.schema({
+		type: orion.components.components({
 			label: "Carousel", 
 			optional: true,
 			allowedComponents: ["component_background_box"]
@@ -40,7 +40,7 @@ orion.pages.addTemplate({
 	},
 	mainArea: {
 		optional: true,
-		type: Components.schema({label: "mainArea", optional: true}),
+		type: orion.components.components({label: "mainArea", optional: true}),
 	}
 	
 });

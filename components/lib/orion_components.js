@@ -1,6 +1,6 @@
 
-Components = {
-	register(id, definition) {
+orion.components = {
+	registerComponent(id, definition) {
 		definition.id = id;
 		this.definitions[id] = definition;
 	},
@@ -15,7 +15,7 @@ Components = {
 		}
 		return definitions.map((id) => {return {label: this.definitions[id].title, value: id}});
 	},
-	schema({label = "Components", allowedComponents = null, optional = true}) {
+	components({label = "Components", allowedComponents = null, optional = true}) {
 		return new SimpleSchema({
 			components: {
 				type: [Object],
@@ -27,7 +27,7 @@ Components = {
 				type: String,
 				autoform: {
 					options(){
-						return Components.definitionsOptions({allowedComponents});
+						return orion.components.definitionsOptions({allowedComponents});
 					}
 				}
 			},
@@ -35,7 +35,7 @@ Components = {
 				autoform: {
 					panelClass: "component"
 				},
-				type: Components.schemaComponentData(),
+				type: orion.components.schemaComponentData(),
 
 			},
 		});
@@ -51,10 +51,8 @@ Components = {
 				
 				autoform: {
 
-					//template:"compact",
 					panelClass: function(){
 						let fieldName = this.name;
-						
 						let [component, ___, ...prefix] = fieldName.split(".").reverse();
 						let definitionField = `${prefix.reverse().join(".")}.definitionId`;
 						let definition = AutoForm.getFieldValue(definitionField);
@@ -70,12 +68,12 @@ Components = {
 }
 
 if(Meteor.isClient) {
-	Template.Components_component.helpers({
+	Template.orion_components_frontend_component.helpers({
 		data() {
 			return this.data[this.definitionId];
 		},
 		definition(){
-			let definition = Components.getDefinition(this.definitionId);
+			let definition = orion.components.getDefinition(this.definitionId);
 			return definition;
 		}
 	});

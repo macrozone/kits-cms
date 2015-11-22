@@ -1,7 +1,7 @@
 
-Components.register("component_background_box", {
+orion.components.registerComponent("component_background_box", {
 	title: "Background box",
-	template: "component_background_box",
+	templateFrontend: "component_background_box",
 	schema: new SimpleSchema({
 		boxPosition: {
 			type: String,

@@ -1,6 +1,6 @@
-Components.register("component_team", {
+orion.components.registerComponent("component_team", {
 	title: "Team",
-	template: "component_team",
+	templateFrontend: "component_team",
 	schema: new SimpleSchema({
 		title: {
 			type: String
