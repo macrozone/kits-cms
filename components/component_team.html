@@ -1,0 +1,15 @@
+<template name="component_team">
+	<div class="container component_team">
+		<h2>{{title}}</h2>
+		{{#each persons}}
+			{{>component_team_person}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="component_team_person">
+<div class="component_team_person col-xs-6 col-sm-4 col-md-3">
+	<img src="{{images.[0].url}}" />
+	<p class="name">{{firstname}} {{lastname}}</p>
+</div>
+</template>

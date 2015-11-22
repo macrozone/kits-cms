@@ -75,46 +75,7 @@ if(Meteor.isClient) {
 		}
 	});
 }
-Components.register("component_title_text", {
-	title: "Titel und Text",
-	template: "component_title_text",
-	schema: new SimpleSchema({
-		title: {
-			type: String
-		},
-		content: orion.attribute('froala', {
-			label: 'Inhalt'
-		}),
 
-	})
-});
 
-Components.register("component_background_box", {
-	title: "Background box",
-	template: "component_background_box",
-	schema: new SimpleSchema({
-		boxPosition: {
-			type: String,
-			allowedValues: ["left", "right"],
-			defaultValue: "left"
-		},
-		content: orion.attribute('froala', {
-			label: 'Box-Inhalt'
-		}),
-		image: orion.attribute("image", {label: "Bild"})
-	})
-});
-Components.register("component3", {
-	title: "Component 3",
-	template: "component3",
-	schema: new SimpleSchema({
 
-		content: orion.attribute('froala', {
-			label: 'Inhalt'
-		}),
-		emails: {
-			type: [String]
-		}
-	})
-});
 

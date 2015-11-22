@@ -1,40 +1,55 @@
-<template name="page">
+<template name="page_advanced">
 	<div class="page">
 
 		<header>
-		
-			<h1 class="title value">{{ title }}</h1>
-		
-		{{>page_carousel}}
+			{{>page_carousel}}
 		</header>
 		
-			<div class="content value">
-				<div class="container">{{{ content }}}</div>
-
-				{{>Components mainArea}}
-			</div>
+		<div class="content value">
 
 
-	
-			
+			{{>Components mainArea}}
+		</div>
+
+
+
+
 		
 	</div>
 </template>
 
+<template name="page">
+	<div class="page">
+
+		<header>
+
+			{{>page_carousel}}
+		</header>
+		
+		<div class="content value">
+			<div class="container">{{{ content }}}</div>
+
+		</div>
+
+	</div>
+</template>
+
+
 
 <template name="page_carousel">
 
-	
+	{{#with carouselArea}}
 	<div class="carousel">
 
 		
 		<ul class="slick">
-			{{#each carouselArea.components}}
-				{{>Components_component}}
+			{{#each components}}
+			{{>Components_component}}
 			{{/each}}
 		</ul>
 
 	</div>
+	{{/with}}
 
 </template>
 

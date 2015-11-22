@@ -1,0 +1,12 @@
+<template name="Components">
+	{{#each components}}
+		{{>Components_component}}
+	{{/each}}
+</template>
+
+<template name="Components_component">
+	{{>Template.dynamic template=definition.template data=data}}
+</template>
+
+
+
