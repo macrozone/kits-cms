@@ -35,16 +35,21 @@ orion.components = {
 				autoform: {
 					panelClass: "component"
 				},
-				type: orion.components.schemaComponentData(),
+				type: orion.components.schemaComponentData({allowedComponents}),
 
 			},
 		});
 	},
-	schemaComponentData() {
+	schemaComponentData({allowedComponents}) {
 
 		let allCompomentsSchema = {};
+		let definitions = _.keys(this.definitions);
+		if(_.isArray(allowedComponents)){
+			definitions = _.intersection(definitions, allowedComponents);
+		}
 
-		for(let id in this.definitions) {
+		for(let id of definitions) {
+			console.log(id);
 			allCompomentsSchema[id] = {
 				type: this.definitions[id].schema,
 				optional: true,
@@ -52,12 +57,14 @@ orion.components = {
 				autoform: {
 
 					panelClass: function(){
+
 						let fieldName = this.name;
 						let [component, ___, ...prefix] = fieldName.split(".").reverse();
 						let definitionField = `${prefix.reverse().join(".")}.definitionId`;
 						let definition = AutoForm.getFieldValue(definitionField);
+						console.log(definitionField, definition, fieldName);
 						return definition === component ? "component-definition component-definition-selected" : "component-definition component-definition-not-selected"
-						
+						//return "component-definition component-definition-selected";
 					}
 				}
 			};
