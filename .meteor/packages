@@ -29,8 +29,9 @@ orionjs:relationships
 dburles:collection-helpers
 reywood:publish-composite
 orionjs:froala
-timbrandin:slick
 less
 reactive-var
 froala:editor-reactive
 orionjs:bootstrap
+panter:orion-components
+panter:slick-blaze

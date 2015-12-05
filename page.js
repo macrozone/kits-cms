@@ -58,25 +58,5 @@ if(Meteor.isClient) {
 	});
 
 	
-	Template.page_carousel.onRendered(function(){
-		let slickInit = false;
-		this.autorun(()=>{
-			let page = orion.pages.collection.findOne(this.data._id);
-			if(page) {
-				Meteor.defer(()=>{
-
-					if(slickInit)
-						this.$('.slick').slick("unslick");
-					this.$('.slick').slick({
-						dots: true,
-						arrows: true
-					});
-					slickInit = true;
-				});
-			}
-			
-		});
-
-	});
 }
 
