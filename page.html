@@ -1,43 +1,57 @@
+<template name="page_advanced">
+	<div class="page">
+
+		<header>
+			{{>page_carousel}}
+		</header>
+		
+		<div class="content value">
+
+			{{>orion_components_frontend_components mainArea}}
+		</div>
+
+
+
+
+		
+	</div>
+</template>
+
 <template name="page">
 	<div class="page">
 
 		<header>
-		{{#editable collection=collection doc=this property="title"}}
-			<h1 class="title value">{{ value }}</h1>
-		{{/editable}}
-		{{>page_carousel}}
+
+			{{>page_carousel}}
 		</header>
-		<div class="container">
-		{{#editable collection=collection doc=this property="content"}}
-			<div class="content value">
-				{{{ value }}}
-			</div>
-		{{/editable}}
-			
+		
+		<div class="content value">
+			<div class="container">{{{ content }}}</div>
+
 		</div>
+
 	</div>
 </template>
+
 
 
 <template name="page_carousel">
 
-	{{#with carousel}}
+	{{#with carouselArea}}
 	<div class="carousel">
 
 		
-		<ul class="slick">
-			{{#each images}}
-				{{>page_carousel_image}}
+		{{#slick}}
+			{{#each components}}
+			<div>
+				{{>orion_components_frontend_component}}
+				</div>
 			{{/each}}
-		</ul>
+		{{/slick}}
 
 	</div>
 	{{/with}}
+
 </template>
 
 
-<template name="page_carousel_image">
-	<li class="slide" style="background-image: url('{{url}}')">
-
-	</li>
-</template>
