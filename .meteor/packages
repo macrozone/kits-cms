@@ -31,7 +31,6 @@ reywood:publish-composite
 orionjs:froala
 less
 reactive-var
-froala:editor-reactive
-orionjs:bootstrap
 panter:orion-components
 panter:slick-blaze
+orionjs:bootstrap

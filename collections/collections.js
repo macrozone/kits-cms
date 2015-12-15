@@ -2,6 +2,9 @@
 SchoolClasses = new orion.collection("SchoolClasses", {
 	singularName: "Class",
 	pluralName: "Classes",
+	link: {
+		iconClass: "fa fa-graduation-cap",
+	},
 	tabular: {
 		columns: [
 			{data: "name", title: "Name"},
@@ -19,6 +22,9 @@ SchoolClasses.attachSchema(new SimpleSchema({
 People = new orion.collection("People", {
 	singularName: "Person",
 	pluralName: "People",
+	link: {
+		iconClass: "fa fa-users",
+	},
 	tabular: {
 		columns: [
 		{data: "firstname", title: "Firstname"},

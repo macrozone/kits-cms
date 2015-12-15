@@ -1,4 +1,26 @@
-
+orion.pages.addTemplate({
+    layout: 'layout',
+    template: 'page_with_components',
+    name: 'Page with components',
+    description: 'A page that contains multiple components in its content-area'
+}, {
+    title: {
+        type: String,
+        label: "Page title",
+    },
+    intro: orion.attribute('froala', {
+        optional: true,
+        label: 'Intro-text'
+    }),
+    contentArea: {
+        optional: true,
+        type: orion.components.components({
+            label: "Content-area", 
+            optional: true,
+            allowedComponents: ["title_text_image"] // optional, restrict to allowed components
+        }),
+    }
+});
 
 
 orion.pages.addTemplate({
