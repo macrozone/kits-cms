@@ -1,3 +1,19 @@
+@import  '_variables';
+@import '{reywood:bootstrap3-sass}/bootstrap';
+.layout {
+	.navbar {
+		.navbar-brand {
+			.logo {
+				height: 100%;
+			}
+			padding: 0px;
+		}
+
+		margin-bottom: 0px;
+	}
+	
+}
+
 .page {
 	img {
 		max-width: 100%;
@@ -32,4 +48,13 @@
 		}
 	}
 	
+}
+
+.slick {
+	margin: 0;
+	padding: 0;
+}
+
+.slick-prev:before, .slick-next:before {
+	color:    silver;
 }

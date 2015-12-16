@@ -4,11 +4,14 @@ orion.dictionary.addDefinition('logo', 'site', orion.attribute("image", {label: 
 
 if(Meteor.isClient)
 {
+
 	Meteor.startup(function(){
 		Meteor.subscribe("pages");
 	})
 
+	ReactiveTemplates.set('pages.loading', 'pages_loading');
 
+	
 	orion.links.add({
 		identifier: "test",
 		title: "Test page",

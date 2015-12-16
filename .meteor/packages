@@ -18,7 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 insecure                # Allow all DB writes from clients (for prototyping)
 orionjs:core
-twbs:bootstrap
 fortawesome:fontawesome
 iron:router
 orionjs:image-attribute
@@ -34,3 +33,6 @@ reactive-var
 panter:orion-components
 panter:slick-blaze
 orionjs:bootstrap
+orionjs:filesystem
+fourseven:scss
+reywood:bootstrap3-sass
