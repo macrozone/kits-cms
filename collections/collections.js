@@ -1,4 +1,10 @@
 
+CollectionRevisions.defaults.keep = 10
+
+orion.pages.collection.attachCollectionRevisions();
+
+RevisionUI.add(orion.pages.collection);
+
 SchoolClasses = new orion.collection("SchoolClasses", {
 	singularName: "Class",
 	pluralName: "Classes",

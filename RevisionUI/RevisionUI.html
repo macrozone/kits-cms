@@ -1,0 +1,33 @@
+<template name="RevisionUI">
+	{{#each collection in collections}}
+		{{>RevisionUI_oneCollection collection=collection}}
+
+	{{/each}}
+
+</template>
+
+<template name="RevisionUI_oneCollection">
+	<div class="RevisionUI_oneCollection">
+		{{collection._name}}
+		<ul>
+		{{#each doc in docs collection}}
+			<li><p>{{doc._id}} {{doc.lastModified}}</p>
+			<p>Revisions: </p>
+			<ul>
+			{{#each revision in doc.revisions}}
+				{{>RevisionUI_oneCollection_oneDoc_oneRevision 
+					collection=collection 
+					doc=doc 
+					revision=revision}}
+			{{/each}}
+			</ul>
+			
+			</li>
+		{{/each}}
+		</ul>
+	</div>
+</template>
+
+<template name="RevisionUI_oneCollection_oneDoc_oneRevision">
+	<p>{{revision._id}} {{revision.lastModified}} {{#unless isActive doc revision}}<button class="btn btn-restore">Restore</button>{{/unless}}</p>
+</template>
